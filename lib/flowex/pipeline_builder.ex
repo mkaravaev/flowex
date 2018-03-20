@@ -19,7 +19,8 @@ defmodule Flowex.PipelineBuilder do
     sup_name = supervisor_name(pipeline_module)
     sup_spec = supervisor(Flowex.Supervisor, [all_specs, sup_name], [id: sup_name, restart: :permanent])
     IO.inspect(sup_name)
-    {:ok, _sup_pid} = Supervisor.start_child(pid, sup_spec)
+    IO.inspect(sup_spec)
+    Supervisor.start_child(pid, sup_spec) |> IO.inspect
     pipeline_struct(pipeline_module, producer_name, consumer_name, sup_name)
   end
 
