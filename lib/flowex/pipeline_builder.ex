@@ -13,7 +13,7 @@ defmodule Flowex.PipelineBuilder do
   end
 
   def supervised_start(pipeline_module, pid, opts) do
-    IO.inspect("Testing supervisor!")
+    IO.inspect("Testing super!")
     {producer_name, consumer_name, all_specs} = build_children(pipeline_module, opts)
 
     sup_name = supervisor_name(pipeline_module)
