@@ -3,7 +3,8 @@ defmodule Flowex.Producer do
 
   use GenStage
 
-  def start_link(nil, opts \\ []) do
+  def start_link(args, opts \\ []) do
+    IO.inspect(args)
     GenStage.start_link(__MODULE__, nil, opts)
   end
 
